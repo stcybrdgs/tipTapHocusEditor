@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@hocuspocus/provider": "^2.13.5",
+    "@tiptap/core": "^2.5.9",
+    "@tiptap/extension-collaboration": "^2.5.9",
+    "@tiptap/starter-kit": "^2.5.9",
+    "yjs": "^13.6.18"
+  },
+  "devDependencies": {
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "scripts": {
+    "start": "webpack serve --config webpack.config.js",
+    "build": "webpack build --config webpack.config.js",
+    "build:watch": "webpack build --watch --config webpack.config.js"
+  }
+}
+
