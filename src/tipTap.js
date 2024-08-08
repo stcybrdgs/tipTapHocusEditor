@@ -1,10 +1,9 @@
-// import { ref } from 'vue'
-// import { Editor, EditorContent } from '@tiptap/vue-3'
 import { Editor } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
 import Collaboration from '@tiptap/extension-collaboration'
-// import { provider, anotherProvider } from './hocusPocus.js'
+import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
 import { provider } from './hocusPocus.js'
+import { getFlagColor } from './mixins.js'
 
 const editor = new Editor({
   element: document.querySelector('.editor'),
@@ -13,20 +12,19 @@ const editor = new Editor({
       history: false,
     }),
     Collaboration.configure({
+      // provider.document is the actual Y.js doc
+      // created by default when the provider is created
       document: provider.document,
       field: 'default',
     }),
+    CollaborationCursor.configure({
+      provider,
+      user: { name: provider.clientId, color: getFlagColor() },
+    }),
   ],
-  //   content: `
-  //     <p>test</p>
-  //     <p>他是我的中文老师.</p>
-  //     <p>test</p>
-  //     <p>你是我的朋友.</p>
-  //   `,
+  content: '',
 })
 
-// export { editor, anotherEditor }
-// export { editor }
 const getEditorHtml = () => console.log(editor.getHTML())
 const getEditorJson = () => console.log(editor.getJSON())
 const getEditorText = () => console.log(editor.getText())
