@@ -7,8 +7,6 @@
 
 .tiptap {
   border: 1px solid gray;
-  /* border-radius: 15px; */
-  line-height: 10px;
   padding: 6px 20px;
   text-align: left;
   font-family: 'Noto Sans SC', sans-serif;
@@ -18,15 +16,8 @@
   overflow: scroll;
 }
 
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 7px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+.tiptap p {
+  margin: 0.2em 0;
 }
 
 /* Give a remote user a caret */
@@ -43,15 +34,28 @@
 /* Render the username above the caret */
 .collaboration-cursor__label {
   border-radius: 3px 3px 3px 0;
-  color: #0d0d0d;
-  font-size: 12px;
+  color: white;
+  font-size: 0.5em;
   font-style: normal;
   font-weight: 600;
   left: -1px;
   line-height: normal;
-  padding: 0.1rem 0.3rem;
+  padding: 0.1rem 0.4rem 0.2rem 0.4rem;
   position: absolute;
   top: -1.4em;
   user-select: none;
   white-space: nowrap;
 }
+
+/* ensure editor scroll bar is always visible if present */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(49, 47, 47, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+

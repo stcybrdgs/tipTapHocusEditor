@@ -2,8 +2,8 @@ import { Editor } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
 import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
-import { provider } from './hocusPocus.js'
-import { getFlagColor } from './mixins.js'
+import { provider } from './hocusClient.js'
+import { getCursorFlagColor } from './mixins.js'
 
 const editor = new Editor({
   element: document.querySelector('.editor'),
@@ -19,7 +19,7 @@ const editor = new Editor({
     }),
     CollaborationCursor.configure({
       provider,
-      user: { name: provider.clientId, color: getFlagColor() },
+      user: { name: provider.name, color: getCursorFlagColor() },
     }),
   ],
   content: '',

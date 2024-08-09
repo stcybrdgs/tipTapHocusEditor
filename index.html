@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--  
+https://tiptap.dev/docs/collaboration/getting-started/install
+https://tiptap.dev/docs/examples/advanced/collaborative-editing
+http://127.0.0.1:5502/portfolioProjects/00_inProgress/tipTapHocusEditor/index.html
+https://code.tutsplus.com/how-to-code-a-random-color-generator-in-javascript--cms-39861t
+https://css-tricks.com/snippets/javascript/random-hex-color/
+https://css-tricks.com/converting-color-spaces-in-javascript/#:~:text=RGB%20to%20Hex,to%20a%20single%20return%20statement.
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TipTap Editor with HocusPocus Server</title>
@@ -9,14 +17,24 @@
   </head>
   <body>
     <h2>TipTap Editor with HocusPocus Server</h2>
-    <input class="name-field" type="text" placeholder="Enter your name" />
+    <input class="name-field" type="text" placeholder="Enter user name" />
     <button class="update-name-field">Submit</button>
     <br /><br />
+    <!-- test div -->
+    <div
+      class="test-div"
+      contenteditable="true"
+      style="height: 100px; border: 1px solid gray; padding: 10px"
+    >
+      <p>testing a really long string of text to see if it is wonky</p>
+    </div>
     <!-- TipTap -->
     <div class="editor">
       <button class="get-html-btn">Get HTML</button>
       <button class="get-json-btn">Get JSON</button>
       <button class="get-text-btn">Get Text</button>
+      <button class="msg-btn">(Incoming) Message</button>
+      <button class="out-msg-btn">Outgoing Message</button>
       <div class="provider"></div>
       <div class="editor"></div>
     </div>

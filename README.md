@@ -2,6 +2,8 @@
 
 ```bash
 npm i @hocuspocus/server
+
+npm i url
 ```
 
 # fe
