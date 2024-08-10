@@ -12,6 +12,7 @@ const msgBtn = document.querySelector('.msg-btn')
 const chatPanelBtn = document.querySelector('.chat-panel-btn')
 const chatPanel = document.querySelector('.chat-panel')
 const chatCloseBtn = document.querySelector('.chat-close-btn')
+const chatMessages = document.querySelector('.chat-messages')
 const chatSendBtn = document.querySelector('.chat-send-btn')
 const chatInput = document.querySelector('.chat-input')
 
@@ -26,6 +27,7 @@ export {
   chatPanelBtn,
   chatPanel,
   chatCloseBtn,
+  chatMessages,
   chatSendBtn,
   chatInput,
 }

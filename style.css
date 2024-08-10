@@ -67,6 +67,16 @@ body {
 .chat-messages {
 }
 
+.chat-panel-msg {
+  background: white;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  font-family: sans-serif;
+  color: #303030;
+}
+
 .chat-composer {
   position: absolute;
   bottom: 0px;

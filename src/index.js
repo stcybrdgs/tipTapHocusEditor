@@ -1,5 +1,5 @@
 import { provider } from './hocusClient.js'
-import { getCursorFlagColor } from './mixins.js'
+import { getCursorFlagColor, addMessageToChatPanel } from './mixins.js'
 import { getEditorHtml, getEditorJson, getEditorText } from './tipTap'
 import {
   updateNameField,
@@ -11,6 +11,7 @@ import {
   chatPanelBtn,
   chatPanel,
   chatCloseBtn,
+  chatMessages,
   chatSendBtn,
   chatInput,
 } from './elements.js'
@@ -18,12 +19,27 @@ import {
 let chatPanelIsOpen = false
 // const chatInputPlaceholder = "Type a message"
 
-// Editor listeners
+// Provider Hooks
+// use stateless messages for chat panel
+provider.on('stateless', (data) => {
+  data = JSON.parse(data.payload)
+  const { message, socketId } = data
+
+  console.log(`
+    provider onStateless()\n
+    \t message: ${message} \n
+    \t socketId: ${socketId}\n
+    `)
+
+  addMessageToChatPanel(message, chatMessages)
+})
+
+// Editor Listeners
 getHtmlBtn.addEventListener('click', () => getEditorHtml())
 getJsonBtn.addEventListener('click', () => getEditorJson())
 getTextBtn.addEventListener('click', () => getEditorText())
 
-// Provider listeners
+// Provider Listeners
 updateNameField.addEventListener('click', () => {
   provider.setAwarenessField('user', {
     name: document.querySelector('.name-field').value,
@@ -46,7 +62,7 @@ outMsgBtn.addEventListener('click', () => {
   provider.sendStateless(statelessMsg)
 })
 
-// Chat Panel listeners
+// Chat Panel Listeners
 chatPanelBtn.addEventListener('click', () => {
   if (chatPanelIsOpen) {
     chatPanel.classList.remove('open')
