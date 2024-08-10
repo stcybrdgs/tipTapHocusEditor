@@ -12,29 +12,50 @@ https://css-tricks.com/converting-color-spaces-in-javascript/#:~:text=RGB%20to%2
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TipTap Editor with HocusPocus Server</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="dist/dist.js" type="module" defer></script>
   </head>
   <body>
     <h2>TipTap Editor with HocusPocus Server</h2>
+
+    <!-- Chat Panel -->
+    <div class="chat-panel">
+      <div class="chat-header">
+        <div class="chat-close-btn">X</div>
+        <div class="chat-title">Chat</div>
+      </div>
+      <div class="chat-body">
+        <div class="chat-messages"></div>
+        <div class="chat-composer">
+          <div class="chat-input" contenteditable="true"></div>
+          <div class="chat-send-btn">
+            <i class="fa-regular fa-paper-plane"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Login -->
     <input class="name-field" type="text" placeholder="Enter user name" />
     <button class="update-name-field">Submit</button>
     <br /><br />
-    <!-- test div -->
-    <div
-      class="test-div"
-      contenteditable="true"
-      style="height: 100px; border: 1px solid gray; padding: 10px"
-    >
-      <p>testing a really long string of text to see if it is wonky</p>
-    </div>
-    <!-- TipTap -->
-    <div class="editor">
+
+    <!-- Button Panel -->
+    <div class="button-panel">
       <button class="get-html-btn">Get HTML</button>
       <button class="get-json-btn">Get JSON</button>
       <button class="get-text-btn">Get Text</button>
       <button class="msg-btn">(Incoming) Message</button>
       <button class="out-msg-btn">Outgoing Message</button>
+      <button class="chat-panel-btn">Chat</button>
+    </div>
+
+    <!-- TipTap Editor -->
+    <div class="editor">
       <div class="provider"></div>
       <div class="editor"></div>
     </div>

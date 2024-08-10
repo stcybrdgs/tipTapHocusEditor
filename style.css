@@ -5,12 +5,112 @@
   padding: 1rem;
 } */
 
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  //min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Chat Panel */
+.chat-panel {
+  position: absolute;
+  top: 0;
+  right: -400px;
+  z-index: 10;
+  background: #303030;
+  height: 100vh;
+  width: 400px;
+  transition: right 0.2s;
+  //padding: 10px;
+  box-sizing: border-box;
+}
+
+.chat-panel.open {
+  right: 0px;
+}
+
+.chat-close-btn {
+  background: white;
+  padding: 4px 8px;
+  border-radius: 22px;
+  font-family: sans-serif;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 100;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.chat-close-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.chat-header {
+  position: relative;
+  text-align: center;
+}
+
+.chat-title {
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 1.2em;
+  color: white;
+  opacity: 0.7;
+}
+
+.chat-messages {
+}
+
+.chat-composer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.chat-composer .chat-input {
+  background: white;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 8px;
+  font-family: sans-serif;
+  color: #3d3d3d;
+  width: 78%;
+}
+
+.chat-send-btn {
+  background: orange;
+  border-radius: 24px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #303030;
+  font-size: 1em;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.chat-send-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* TipTap */
 .tiptap {
   border: 1px solid gray;
   padding: 6px 20px;
   text-align: left;
   font-family: 'Noto Sans SC', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: rgb(88, 88, 88);
   max-height: 400px;
   overflow: scroll;
@@ -20,7 +120,8 @@
   margin: 0.2em 0;
 }
 
-/* Give a remote user a caret */
+/* Collaboration Cursor */
+/* Give a remote user a collab caret */
 .collaboration-cursor__caret {
   border-left: 1px solid #0d0d0d;
   border-right: 1px solid #0d0d0d;
@@ -31,23 +132,26 @@
   word-break: normal;
 }
 
-/* Render the username above the caret */
+/* Render username above collab caret */
 .collaboration-cursor__label {
   border-radius: 3px 3px 3px 0;
   color: white;
   font-size: 0.5em;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   left: -1px;
   line-height: normal;
-  padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+  padding: 0.1rem 0.3rem 0.2rem 0.3rem;
   position: absolute;
-  top: -1.4em;
+  top: -0.6em;
   user-select: none;
   white-space: nowrap;
 }
 
-/* ensure editor scroll bar is always visible if present */
+/* 
+  Scrollbar
+  ensure editor scroll bar is visible if present 
+*/
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 9px;

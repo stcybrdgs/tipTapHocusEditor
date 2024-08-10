@@ -1,22 +1,29 @@
 import { provider } from './hocusClient.js'
 import { getCursorFlagColor } from './mixins.js'
-
 import { getEditorHtml, getEditorJson, getEditorText } from './tipTap'
+import {
+  updateNameField,
+  getHtmlBtn,
+  getJsonBtn,
+  getTextBtn,
+  outMsgBtn,
+  msgBtn,
+  chatPanelBtn,
+  chatPanel,
+  chatCloseBtn,
+  chatSendBtn,
+  chatInput,
+} from './elements.js'
 
-// get button elements
-const getHtmlBtn = document.querySelector('.get-html-btn')
-const getJsonBtn = document.querySelector('.get-json-btn')
-const getTextBtn = document.querySelector('.get-text-btn')
-const updateNameField = document.querySelector('.update-name-field')
-const msgBtn = document.querySelector('.msg-btn')
-const outMsgBtn = document.querySelector('.out-msg-btn')
+let chatPanelIsOpen = false
+// const chatInputPlaceholder = "Type a message"
 
-// add listeners for editor methods
+// Editor listeners
 getHtmlBtn.addEventListener('click', () => getEditorHtml())
 getJsonBtn.addEventListener('click', () => getEditorJson())
 getTextBtn.addEventListener('click', () => getEditorText())
 
-// add listeners for provider methods
+// Provider listeners
 updateNameField.addEventListener('click', () => {
   provider.setAwarenessField('user', {
     name: document.querySelector('.name-field').value,
@@ -31,11 +38,32 @@ msgBtn.addEventListener('click', () => {
 })
 
 outMsgBtn.addEventListener('click', () => {
-  const message = 'Outgoing Message'
-  const event = 'send-message'
+  //const message = 'Outgoing Message'
+  //const event = 'send-message'
   const statelessMsg = 'string from the browser'
-  const doc = provider.document
+  //const doc = provider.document
   console.log('outMsgButton -> provider: ', provider)
   provider.sendStateless(statelessMsg)
+})
+
+// Chat Panel listeners
+chatPanelBtn.addEventListener('click', () => {
+  if (chatPanelIsOpen) {
+    chatPanel.classList.remove('open')
+  } else {
+    chatPanel.classList.add('open')
+  }
+  chatPanelIsOpen = !chatPanelIsOpen
+})
+
+chatCloseBtn.addEventListener('click', () => {
+  chatPanel.classList.remove('open')
+  chatPanelIsOpen = false
+})
+
+chatSendBtn.addEventListener('click', () => {
+  const chatMsg = chatInput.textContent
+  //console.log(chatMsg)
+  provider.sendStateless(chatMsg)
 })
 

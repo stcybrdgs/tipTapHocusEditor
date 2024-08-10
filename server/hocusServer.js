@@ -142,7 +142,7 @@ server.configure({
     payload: //
     }
     */
-    test.payload = 'string from the server'
+    //test.payload = 'string from the server'
     const myPayload = {
       message: test.payload,
       socketId: test.connection.socketId,

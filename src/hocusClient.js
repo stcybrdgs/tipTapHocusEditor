@@ -23,6 +23,7 @@ const provider = new HocuspocusProvider({
   onOutgoingMessage: ({ event, message }) => {
     console.log(`provider onOutgoingMessage(): \n\t ${event} | ${message}`)
   },
+  // use stateless messages for chat panel
   onStateless: (data) => {
     data = JSON.parse(data.payload)
     const { message, socketId } = data

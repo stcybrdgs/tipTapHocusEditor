@@ -16,8 +16,9 @@ npm i @tiptap/extension-collaboration
 npm i @tiptap/extension-collaboration-cursor
 npm i @tiptap/extension-placeholder
 npm i @hocuspocus/provider
-npm install --save-dev webpack
-npm install --save-dev webpack-cli
-npm install webpack-dev-server --save-dev
+npm i --save-dev webpack
+npm i --save-dev webpack-cli
+npm i webpack-dev-server --save-dev
+npm i paper
 ```
 
