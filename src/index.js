@@ -13,6 +13,7 @@ import {
   outMsgBtn,
   msgBtn,
   chatPanelBtn,
+  chatToggleBtn,
   chatPanel,
   chatCloseBtn,
   chatMessages,
@@ -24,7 +25,7 @@ import {
 let chatPanelIsOpen = false
 // const chatInputPlaceholder = "Type a message"
 
-// Provider Hooks
+//* Provider Hooks
 // use stateless messages for chat panel
 provider.on('stateless', (data) => {
   data = JSON.parse(data.payload)
@@ -40,12 +41,13 @@ provider.on('stateless', (data) => {
   clearChatInput(chatInput)
 })
 
-// Editor Listeners
+//* Editor Listeners
 getHtmlBtn.addEventListener('click', () => getEditorHtml())
 getJsonBtn.addEventListener('click', () => getEditorJson())
 getTextBtn.addEventListener('click', () => getEditorText())
 
-// Provider Listeners
+//* Provider Listeners
+// update name and asign cursor color when user logs in
 updateNameField.addEventListener('click', () => {
   provider.setAwarenessField('user', {
     name: document.querySelector('.name-field').value,
@@ -53,6 +55,7 @@ updateNameField.addEventListener('click', () => {
   })
 })
 
+// emit incoming message to provider
 msgBtn.addEventListener('click', () => {
   const message = 'Incoming Message'
   const event = 'receive-message'
@@ -60,26 +63,36 @@ msgBtn.addEventListener('click', () => {
 })
 
 outMsgBtn.addEventListener('click', () => {
-  //const message = 'Outgoing Message'
-  //const event = 'send-message'
   const statelessMsg = 'string from the browser'
-  //const doc = provider.document
-  console.log('outMsgButton -> provider: ', provider)
   provider.sendStateless(statelessMsg)
 })
 
-// Chat Panel Listeners
-chatPanelBtn.addEventListener('click', () => {
+//* Chat Panel Listeners
+// chatPanelBtn.addEventListener('click', () => {
+//   if (chatPanelIsOpen) {
+//     chatPanel.classList.remove('open')
+//     chatToggleBtn.classList.remove('hide')
+//   } else {
+//     chatPanel.classList.add('open')
+//     chatToggleBtn.classList.add('hide')
+//   }
+//   chatPanelIsOpen = !chatPanelIsOpen
+// })
+
+chatToggleBtn.addEventListener('click', () => {
   if (chatPanelIsOpen) {
     chatPanel.classList.remove('open')
+    chatToggleBtn.classList.remove('hide')
   } else {
     chatPanel.classList.add('open')
+    chatToggleBtn.classList.add('hide')
   }
   chatPanelIsOpen = !chatPanelIsOpen
 })
 
 chatCloseBtn.addEventListener('click', () => {
   chatPanel.classList.remove('open')
+  chatToggleBtn.classList.remove('hide')
   chatPanelIsOpen = false
 })
 
@@ -89,7 +102,7 @@ chatSendBtn.addEventListener('click', () => {
   provider.sendStateless(chatMsg)
 })
 
-// Splide Carousel (mount on page load)
+//* Splide Carousel
 function getPhotoFileNames() {
   return ['burger_1.jpg', 'burger_2.jpg']
 }
@@ -109,7 +122,5 @@ function createSplideCarousel() {
   })
 }
 
-// mountSplide()
-// populateCarousel()
 createSplideCarousel()
 
