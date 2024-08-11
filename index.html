@@ -57,6 +57,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <button class="update-name-field">Submit</button>
     <br /><br />
 
+    <!-- Todd Carousel -->
     <div class="todd-carousel">
       <!-- Button Panel -->
       <div class="button-panel">
@@ -67,25 +68,23 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <button class="out-msg-btn">Outgoing Message</button>
         <!-- <button class="chat-panel-btn">Chat</button> -->
       </div>
-
       <!-- Splide Carousel -->
       <section id="image-carousel" class="splide" aria-label="Beautiful Images">
         <div class="splide__track">
           <ul class="splide__list"></ul>
         </div>
       </section>
-
       <!-- TipTap Editor -->
       <div class="editor-wrapper">
         <div class="provider"></div>
         <div class="editor"></div>
       </div>
     </div>
-    <!-- Script -->
-    <!-- 
+
+    <!-- Script 
       make sure the target Splide element is loaded before 
       constructing the Splide instance
-    -->
+     -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         new Splide('#image-carousel').mount()
