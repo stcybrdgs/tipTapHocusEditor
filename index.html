@@ -12,9 +12,18 @@ https://css-tricks.com/converting-color-spaces-in-javascript/#:~:text=RGB%20to%2
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TipTap Editor with HocusPocus Server</title>
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    "></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
     <script src="dist/dist.js" type="module" defer></script>
@@ -44,6 +53,13 @@ https://css-tricks.com/converting-color-spaces-in-javascript/#:~:text=RGB%20to%2
     <button class="update-name-field">Submit</button>
     <br /><br />
 
+    <!-- Splide Carousel -->
+    <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+      <div class="splide__track">
+        <ul class="splide__list"></ul>
+      </div>
+    </section>
+
     <!-- Button Panel -->
     <div class="button-panel">
       <button class="get-html-btn">Get HTML</button>
@@ -59,6 +75,17 @@ https://css-tricks.com/converting-color-spaces-in-javascript/#:~:text=RGB%20to%2
       <div class="provider"></div>
       <div class="editor"></div>
     </div>
+
+    <!-- Script -->
+    <!-- 
+      make sure the target Splide element is loaded before 
+      constructing the Splide instance
+    -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#image-carousel').mount()
+      })
+    </script>
   </body>
 </html>
 

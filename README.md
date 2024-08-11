@@ -20,5 +20,6 @@ npm i --save-dev webpack
 npm i --save-dev webpack-cli
 npm i webpack-dev-server --save-dev
 npm i paper
+npm i @splidejs/splide
 ```
 

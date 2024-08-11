@@ -16,7 +16,10 @@ const chatMessages = document.querySelector('.chat-messages')
 const chatSendBtn = document.querySelector('.chat-send-btn')
 const chatInput = document.querySelector('.chat-input')
 
-// get elements
+// Splide Carousel
+const splideList = document.querySelector('.splide__list')
+
+// export elements
 export {
   updateNameField,
   getHtmlBtn,
@@ -30,5 +33,6 @@ export {
   chatMessages,
   chatSendBtn,
   chatInput,
+  splideList,
 }
 

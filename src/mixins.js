@@ -64,12 +64,19 @@ function getCursorFlagColor() {
   return hex
 }
 
-function addMessageToChatPanel(message, chatPanelElem) {
-  let newDiv = document.createElement('div')
-  newDiv.classList.add('chat-panel-msg')
-  newDiv.textContent = message
-  chatPanelElem.appendChild(newDiv)
+function addMessageToChatPanel(message, chatMessagesElem) {
+  if (message.length) {
+    let newMsg = document.createElement('p')
+    newMsg.classList.add('chat-panel-msg')
+    newMsg.textContent = message
+    chatMessagesElem.appendChild(newMsg)
+    chatMessagesElem.scrollTop = chatMessagesElem.scrollHeight
+  }
 }
 
-export { getCursorFlagColor, addMessageToChatPanel }
+function clearChatInput(chatInputElem) {
+  chatInputElem.textContent = ''
+}
+
+export { getCursorFlagColor, addMessageToChatPanel, clearChatInput }
 

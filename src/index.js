@@ -1,5 +1,9 @@
 import { provider } from './hocusClient.js'
-import { getCursorFlagColor, addMessageToChatPanel } from './mixins.js'
+import {
+  getCursorFlagColor,
+  addMessageToChatPanel,
+  clearChatInput,
+} from './mixins.js'
 import { getEditorHtml, getEditorJson, getEditorText } from './tipTap'
 import {
   updateNameField,
@@ -14,6 +18,7 @@ import {
   chatMessages,
   chatSendBtn,
   chatInput,
+  splideList,
 } from './elements.js'
 
 let chatPanelIsOpen = false
@@ -32,6 +37,7 @@ provider.on('stateless', (data) => {
     `)
 
   addMessageToChatPanel(message, chatMessages)
+  clearChatInput(chatInput)
 })
 
 // Editor Listeners
@@ -82,4 +88,28 @@ chatSendBtn.addEventListener('click', () => {
   //console.log(chatMsg)
   provider.sendStateless(chatMsg)
 })
+
+// Splide Carousel (mount on page load)
+function getPhotoFileNames() {
+  return ['burger_1.jpg', 'burger_2.jpg']
+}
+
+function createSplideCarousel() {
+  const photoFileNames = getPhotoFileNames()
+  const basePath = './public/images/'
+
+  photoFileNames.forEach((fileName) => {
+    const filePath = basePath.concat(fileName)
+    const listItem = document.createElement('li')
+    const image = document.createElement('img')
+    listItem.setAttribute('class', 'splide__slide')
+    image.setAttribute('src', filePath)
+    listItem.appendChild(image)
+    splideList.appendChild(listItem)
+  })
+}
+
+// mountSplide()
+// populateCarousel()
+createSplideCarousel()
 

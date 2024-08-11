@@ -2,6 +2,7 @@
   "dependencies": {
     "@hocuspocus/provider": "^2.13.5",
     "@hocuspocus/transformer": "^2.13.5",
+    "@splidejs/splide": "^4.1.4",
     "@tiptap/core": "^2.5.9",
     "@tiptap/extension-collaboration": "^2.5.9",
     "@tiptap/extension-collaboration-cursor": "^2.5.9",
