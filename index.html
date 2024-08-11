@@ -26,6 +26,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_media.css" />
     <script src="dist/dist.js" type="module" defer></script>
   </head>
   <body>
@@ -56,29 +57,30 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <button class="update-name-field">Submit</button>
     <br /><br />
 
-    <!-- Button Panel -->
-    <div class="button-panel">
-      <button class="get-html-btn">Get HTML</button>
-      <button class="get-json-btn">Get JSON</button>
-      <button class="get-text-btn">Get Text</button>
-      <button class="msg-btn">(Incoming) Message</button>
-      <button class="out-msg-btn">Outgoing Message</button>
-      <!-- <button class="chat-panel-btn">Chat</button> -->
-    </div>
-
-    <!-- Splide Carousel -->
-    <section id="image-carousel" class="splide" aria-label="Beautiful Images">
-      <div class="splide__track">
-        <ul class="splide__list"></ul>
+    <div class="todd-carousel">
+      <!-- Button Panel -->
+      <div class="button-panel">
+        <button class="get-html-btn">Get HTML</button>
+        <button class="get-json-btn">Get JSON</button>
+        <button class="get-text-btn">Get Text</button>
+        <button class="msg-btn">(Incoming) Message</button>
+        <button class="out-msg-btn">Outgoing Message</button>
+        <!-- <button class="chat-panel-btn">Chat</button> -->
       </div>
-    </section>
 
-    <!-- TipTap Editor -->
-    <div class="editor">
-      <div class="provider"></div>
-      <div class="editor"></div>
+      <!-- Splide Carousel -->
+      <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+        <div class="splide__track">
+          <ul class="splide__list"></ul>
+        </div>
+      </section>
+
+      <!-- TipTap Editor -->
+      <div class="editor-wrapper">
+        <div class="provider"></div>
+        <div class="editor"></div>
+      </div>
     </div>
-
     <!-- Script -->
     <!-- 
       make sure the target Splide element is loaded before 

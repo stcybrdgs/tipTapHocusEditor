@@ -1,0 +1,61 @@
+/* Todd Carousel Media */
+
+/* 600 900 1200 1800 */
+/* 320 480 640 768 1024 1280 1600 1800 */
+
+@media only screen and (min-width: 640px) {
+  .todd-carousel {
+    margin: 0 4%;
+  }
+  .tiptap {
+    height: 600px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .todd-carousel {
+    margin: 0 8%;
+  }
+  .tiptap {
+    height: 480px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .todd-carousel {
+    margin: 0 15%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .todd-carousel {
+    margin: 0 22%;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .todd-carousel {
+    margin: 0 25%;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .todd-carousel {
+    margin: 0 30%;
+  }
+}
+@media only screen and (min-width: 2400px) {
+  .todd-carousel {
+    margin: 0 32%;
+  }
+}
+/*
+1 这是个很长的句子. 我们应该做另一个.
+2 我看到一些华府薯条和一小杯咖啡.
+3 asdf
+4 asdf
+5 asdf
+6 asdf
+7 asdf
+8 asdf
+9 asdf
+10 sadf
+11 asdf
+12 asdf
+*/
+

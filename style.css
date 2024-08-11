@@ -19,11 +19,11 @@ body {
 .chat-panel {
   position: absolute;
   top: 0;
-  right: -400px;
+  right: -500px;
   z-index: 10;
   background: #303030;
   height: 100vh;
-  width: 400px;
+  width: 500px;
   transition: right 0.3s;
   box-sizing: border-box;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 .chat-close-btn {
-  background: white;
+  background: #e29828;
   padding: 4px 8px;
   border-radius: 22px;
   font-family: sans-serif;
@@ -146,7 +146,14 @@ body {
   opacity: 1;
 }
 
-/* Splide Carousel */
+/* Todd/Splide Carousel */
+/* #image-carousel {
+  background: #303030;
+} */
+.todd-carousel {
+  margin: 0;
+}
+
 .splide__slide img {
   width: 100%;
   height: auto;
@@ -154,13 +161,13 @@ body {
 
 /* TipTap */
 .tiptap {
-  border: 1px solid gray;
+  border: 1px solid #d6d6d6;
   padding: 6px 20px;
   text-align: left;
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 1.1em;
   color: rgb(88, 88, 88);
-  max-height: 400px;
+  height: 480px;
   overflow: scroll;
 }
 
