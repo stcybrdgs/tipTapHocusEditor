@@ -91,8 +91,7 @@ const removeDoubleReturnsFromText = (text) => {
       const prevChar = textArr[index - 1]
       const currChar = textArr[index]
       if (prevChar === '\n' && currChar === '\n') {
-        textArr.splice(index, 1)
-        removeDoubleReturnsFromText(textArr.join(''))
+        textArr[index] = ''
       }
       index++
     }
