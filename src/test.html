@@ -2,16 +2,21 @@
 <html lang="en">
   <head>
     <title>TipTap Editor with HocusPocus Server</title>
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    "></script>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-    rel="stylesheet"
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
     <!-- <link rel="stylesheet" href="style_media.css" /> -->
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="dist/dist.js" type="module" defer></script>
   </head>
   <body>
@@ -68,9 +73,6 @@
           <!-- TipTap Editor -->
           <div class="editor-wrapper">
             <div class="editor"></div>
-            <div class="editor-copy-btn">
-              <i class="fa-regular fa-copy"></i>
-            </div>
           </div>
         </div>
     </div>
@@ -78,26 +80,11 @@
       make sure the target Splide element is loaded before 
       constructing the Splide instance
      -->
-     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>
-     <script src="https://unpkg.com/tippy.js@6"></script> -->
-     
-     <!-- Splide -->
-     <script>
-     document.addEventListener('DOMContentLoaded', function () {
-       new Splide('#image-carousel').mount()
-     });
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#image-carousel').mount()
+      })
     </script>
-
-    <!-- Tippy -->
-    <!-- <script> 
-      // tippy('.editor-copy-btn', {
-      //   content: 'Copy text',
-      //   placement: 'top-start',
-      //   //animation: 'scale-subtle'
-      //   theme: 'light'
-      // });
-    </script> -->
   </body>
 </div>
 </html>
-

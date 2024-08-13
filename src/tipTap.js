@@ -22,12 +22,9 @@ const editor = new Editor({
       user: { name: provider.name, color: getCursorFlagColor() },
     }),
   ],
-  content: '',
+  autofocus: true,
+  content: '<p>Type some stuff...</p>',
 })
-
-const getEditorHtml = () => console.log(editor.getHTML())
-const getEditorJson = () => console.log(editor.getJSON())
-const getEditorText = () => console.log(editor.getText())
 
 editor.on('create', ({ editor }) => {
   console.log('the editor is ready')
@@ -37,5 +34,4 @@ editor.on('update', ({ editor }) => {
   console.log('The content has changed.')
 })
 
-export { editor, getEditorHtml, getEditorJson, getEditorText }
-
+export { editor }

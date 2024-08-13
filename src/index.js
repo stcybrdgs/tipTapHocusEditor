@@ -3,8 +3,9 @@ import {
   getCursorFlagColor,
   addMessageToChatPanel,
   clearChatInput,
+  addTextToClipboard,
 } from './mixins.js'
-import { editor, getEditorHtml, getEditorJson, getEditorText } from './tipTap'
+import { editor } from './tipTap'
 import {
   updateNameField,
   getHtmlBtn,
@@ -21,9 +22,25 @@ import {
   splideList,
   editorCopyBtn,
 } from './elements.js'
+import tippy from 'tippy.js'
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/animations/scale.css'
+import 'tippy.js/themes/material.css'
 
 let chatPanelIsOpen = false
 // const chatInputPlaceholder = "Type a message"
+
+//* Tippy Tooltips
+tippy.setDefaultProps({ delay: 50 })
+
+tippy('.editor-copy-btn', {
+  content: 'Copy Text',
+  placement: 'top-start',
+  animation: 'scale-subtle',
+  theme: 'blueberry',
+  hideOnClick: true,
+  duration: [100, 50],
+})
 
 //* Provider Hooks
 // use stateless messages for chat panel
@@ -42,9 +59,9 @@ provider.on('stateless', (data) => {
 })
 
 //* Editor Listeners
-getHtmlBtn.addEventListener('click', () => getEditorHtml())
-getJsonBtn.addEventListener('click', () => getEditorJson())
-getTextBtn.addEventListener('click', () => getEditorText())
+getHtmlBtn.addEventListener('click', () => console.log(editor.getHTML()))
+getJsonBtn.addEventListener('click', () => console.log(editor.getJSON()))
+getTextBtn.addEventListener('click', () => console.log(editor.getText()))
 
 //* Provider Listeners
 // update name and asign cursor color when user logs in
@@ -88,16 +105,10 @@ chatSendBtn.addEventListener('click', () => {
 })
 
 //* Editor Actions Listeners
-async function addTextToClipboard(text) {
-  const type = 'text/plain'
-  const blob = new Blob([text], { type })
-  const data = [new ClipboardItem({ [type]: blob })]
-  await navigator.clipboard.write(data)
-}
-
 editorCopyBtn.addEventListener('click', () => {
-  const copyText = editor.getText()
+  let copyText = editor.getText()
   addTextToClipboard(copyText)
+  //* TODO: add a toast message
 })
 
 //* Splide Carousel

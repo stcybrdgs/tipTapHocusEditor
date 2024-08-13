@@ -4,7 +4,7 @@
   - receives min, max int values
   - returns integer
 */
-function getRandomIntInRange(min, max) {
+const getRandomIntInRange = (min, max) => {
   const minCeil = Math.ceil(min)
   const maxFloor = Math.floor(max + 1) // makes max inclusive
   return Math.floor(Math.random() * (maxFloor - minCeil) + minCeil)
@@ -19,7 +19,7 @@ function getRandomIntInRange(min, max) {
   - default min = 0
   - default max = 255
 */
-function getRandomRgbColor(min = 0, max = 255) {
+const getRandomRgbColor = (min = 0, max = 255) => {
   const r = getRandomIntInRange(min, max)
   const g = getRandomIntInRange(min, max)
   const b = getRandomIntInRange(min, max)
@@ -33,7 +33,7 @@ function getRandomRgbColor(min = 0, max = 255) {
   - if received int < 0 then set int = 0
   - if received int > 255 then set int = 255 
 */
-function convertRgbToHex(r, g, b) {
+const convertRgbToHex = (r, g, b) => {
   // correct out-of-range values
   r = r < 0 ? 0 : r > 255 ? 255 : r
   g = g < 0 ? 0 : g > 255 ? 255 : g
@@ -58,13 +58,13 @@ function convertRgbToHex(r, g, b) {
   - returns hex color as string
 */
 
-function getCursorFlagColor() {
+const getCursorFlagColor = () => {
   const rgb = getRandomRgbColor(50, 205)
   const hex = convertRgbToHex(rgb[0], rgb[1], rgb[2])
   return hex
 }
 
-function addMessageToChatPanel(message, chatMessagesElem) {
+const addMessageToChatPanel = (message, chatMessagesElem) => {
   if (message.length) {
     let newMsg = document.createElement('p')
     newMsg.classList.add('chat-panel-msg')
@@ -74,9 +74,64 @@ function addMessageToChatPanel(message, chatMessagesElem) {
   }
 }
 
-function clearChatInput(chatInputElem) {
+const clearChatInput = (chatInputElem) => {
   chatInputElem.textContent = ''
 }
 
-export { getCursorFlagColor, addMessageToChatPanel, clearChatInput }
+/*
+  - receives the text from editor.getText()
+  - removes the duplicate '\n' characters
+  - returns the modified text
+*/
+const removeDoubleReturnsFromText = (text) => {
+  if (text.length > 1) {
+    let textArr = text.split('')
+    let index = 1
+    while (index < text.length) {
+      const prevChar = textArr[index - 1]
+      const currChar = textArr[index]
+      if (prevChar === '\n' && currChar === '\n') {
+        textArr.splice(index, 1)
+        removeDoubleReturnsFromText(textArr.join(''))
+      }
+      index++
+    }
+    text = textArr.join('')
+  }
+  return text
+}
+
+/*
+  - receives from editor.getText()
+  - passes text to removeDoubleReturnsFromText()
+  - copies modified text to the clipboard
+  - returns nothing to caller
+*/
+const addTextToClipboard = async (text) => {
+  text = removeDoubleReturnsFromText(text)
+  try {
+    await navigator.clipboard.writeText(text)
+    console.log('copied! ')
+  } catch (error) {
+    console.error(error.message)
+  }
+}
+
+/*
+  may use function to copy png images to clipboard;
+  will need to change type
+*/
+//const addDataToClipboard = async(data) =>{
+// const type = 'text/plain'
+// const blob = new Blob([text], { type })
+// const data = [new ClipboardItem({ [type]: blob })]
+// await navigator.clipboard.write(data)
+//}
+
+export {
+  getCursorFlagColor,
+  addMessageToChatPanel,
+  clearChatInput,
+  addTextToClipboard,
+}
 

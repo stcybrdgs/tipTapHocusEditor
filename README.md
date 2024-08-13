@@ -19,7 +19,9 @@ npm i @hocuspocus/provider
 npm i --save-dev webpack
 npm i --save-dev webpack-cli
 npm i webpack-dev-server --save-dev
+npm install --save-dev style-loader css-loader
 npm i paper
 npm i @splidejs/splide
+npm i tippy.js
 ```
 

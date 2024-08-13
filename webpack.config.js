@@ -7,6 +7,15 @@ const config = {
     filename: 'dist.js',
     clean: true,
   },
+  module: {
+    rules: [
+      // CSS loader
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 }
 
 module.exports = config
