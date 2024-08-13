@@ -16,6 +16,7 @@ const chatCloseBtn = document.querySelector('.chat-close-btn')
 const chatMessages = document.querySelector('.chat-messages')
 const chatSendBtn = document.querySelector('.chat-send-btn')
 const chatInput = document.querySelector('.chat-input')
+const editorCopyBtn = document.querySelector('.editor-copy-btn')
 
 // Splide Carousel
 const splideList = document.querySelector('.splide__list')
@@ -36,5 +37,6 @@ export {
   chatSendBtn,
   chatInput,
   splideList,
+  editorCopyBtn,
 }
 

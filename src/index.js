@@ -4,7 +4,7 @@ import {
   addMessageToChatPanel,
   clearChatInput,
 } from './mixins.js'
-import { getEditorHtml, getEditorJson, getEditorText } from './tipTap'
+import { editor, getEditorHtml, getEditorJson, getEditorText } from './tipTap'
 import {
   updateNameField,
   getHtmlBtn,
@@ -19,6 +19,7 @@ import {
   chatSendBtn,
   chatInput,
   splideList,
+  editorCopyBtn,
 } from './elements.js'
 
 let chatPanelIsOpen = false
@@ -84,6 +85,19 @@ chatCloseBtn.addEventListener('click', () => {
 chatSendBtn.addEventListener('click', () => {
   const chatMsg = chatInput.textContent
   provider.sendStateless(chatMsg)
+})
+
+//* Editor Actions Listeners
+async function addTextToClipboard(text) {
+  const type = 'text/plain'
+  const blob = new Blob([text], { type })
+  const data = [new ClipboardItem({ [type]: blob })]
+  await navigator.clipboard.write(data)
+}
+
+editorCopyBtn.addEventListener('click', () => {
+  const copyText = editor.getText()
+  addTextToClipboard(copyText)
 })
 
 //* Splide Carousel
