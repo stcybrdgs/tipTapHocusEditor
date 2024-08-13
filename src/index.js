@@ -12,7 +12,6 @@ import {
   getTextBtn,
   outMsgBtn,
   msgBtn,
-  chatPanelBtn,
   chatToggleBtn,
   chatPanel,
   chatCloseBtn,
@@ -68,43 +67,28 @@ outMsgBtn.addEventListener('click', () => {
 })
 
 //* Chat Panel Listeners
-// chatPanelBtn.addEventListener('click', () => {
-//   if (chatPanelIsOpen) {
-//     chatPanel.classList.remove('open')
-//     chatToggleBtn.classList.remove('hide')
-//   } else {
-//     chatPanel.classList.add('open')
-//     chatToggleBtn.classList.add('hide')
-//   }
-//   chatPanelIsOpen = !chatPanelIsOpen
-// })
-
 chatToggleBtn.addEventListener('click', () => {
   if (chatPanelIsOpen) {
-    chatPanel.classList.remove('open')
-    chatToggleBtn.classList.remove('hide')
+    chatPanel.classList.remove('chat-is-open')
   } else {
-    chatPanel.classList.add('open')
-    chatToggleBtn.classList.add('hide')
+    chatPanel.classList.add('chat-is-open')
   }
   chatPanelIsOpen = !chatPanelIsOpen
 })
 
 chatCloseBtn.addEventListener('click', () => {
-  chatPanel.classList.remove('open')
-  chatToggleBtn.classList.remove('hide')
+  chatPanel.classList.remove('chat-is-open')
   chatPanelIsOpen = false
 })
 
 chatSendBtn.addEventListener('click', () => {
   const chatMsg = chatInput.textContent
-  //console.log(chatMsg)
   provider.sendStateless(chatMsg)
 })
 
 //* Splide Carousel
 function getPhotoFileNames() {
-  return ['burger_1.jpg', 'burger_2.jpg']
+  return ['burger_1.jpg', 'burger_2.jpg', 'grocery_5.png']
 }
 
 function createSplideCarousel() {

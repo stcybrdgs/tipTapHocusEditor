@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--  
-https://tiptap.dev/docs/collaboration/getting-started/install
-https://tiptap.dev/docs/examples/advanced/collaborative-editing
-http://127.0.0.1:5502/portfolioProjects/00_inProgress/tipTapHocusEditor/index.html
-https://code.tutsplus.com/how-to-code-a-random-color-generator-in-javascript--cms-39861t
-https://css-tricks.com/snippets/javascript/random-hex-color/
-https://css-tricks.com/converting-color-spaces-in-javascript/#:~:text=RGB%20to%20Hex,to%20a%20single%20return%20statement.
-    -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TipTap Editor with HocusPocus Server</title>
     <script src="
     https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
@@ -26,13 +16,12 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style_media.css" />
+    <!-- <link rel="stylesheet" href="style_media.css" /> -->
     <script src="dist/dist.js" type="module" defer></script>
   </head>
   <body>
-    <h2>TipTap Editor with HocusPocus Server</h2>
-
-    <!-- Chat Panel -->
+    <div class="main-wrapper">
+      <!-- Chat Panel -->
     <div class="chat-panel">
       <div class="chat-toggle-btn">
         <i class="fa-regular fa-comment"></i>
@@ -51,36 +40,43 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </div>
       </div>
     </div>
-
-    <!-- User Login -->
-    <input class="name-field" type="text" placeholder="Enter user name" />
-    <button class="update-name-field">Submit</button>
-    <br /><br />
-
-    <!-- Todd Carousel -->
-    <div class="todd-carousel">
-      <!-- Button Panel -->
-      <div class="button-panel">
-        <button class="get-html-btn">Get HTML</button>
-        <button class="get-json-btn">Get JSON</button>
-        <button class="get-text-btn">Get Text</button>
-        <button class="msg-btn">(Incoming) Message</button>
-        <button class="out-msg-btn">Outgoing Message</button>
-        <!-- <button class="chat-panel-btn">Chat</button> -->
-      </div>
-      <!-- Splide Carousel -->
-      <section id="image-carousel" class="splide" aria-label="Beautiful Images">
-        <div class="splide__track">
-          <ul class="splide__list"></ul>
+      <div class="header">
+        <div class="title">TipTap Editor</div>
+        
+        <div class="login-wrapper">
+          <input class="name-field" type="text" placeholder="Enter user name" />
+          <button class="update-name-field">Submit</button>
         </div>
-      </section>
-      <!-- TipTap Editor -->
-      <div class="editor-wrapper">
-        <div class="provider"></div>
-        <div class="editor"></div>
-      </div>
-    </div>
+      </div>    
 
+    <div class="inner-wrapper">
+      <!-- Todd Carousel -->
+        <div class="todd-carousel">
+          <!-- Button Panel -->
+          <div class="button-panel">
+            <button class="get-html-btn">Get HTML</button>
+            <button class="get-json-btn">Get JSON</button>
+            <button class="get-text-btn">Get Text</button>
+            <button class="msg-btn">(Incoming) Message</button>
+            <button class="out-msg-btn">Outgoing Message</button>
+          </div>
+          <!-- Splide Carousel -->
+          <section
+            id="image-carousel"
+            class="splide"
+            aria-label="Beautiful Images"
+          >
+            <div class="splide__track">
+              <ul class="splide__list"></ul>
+            </div>
+          </section>
+          <!-- TipTap Editor -->
+          <div class="editor-wrapper">
+            <div class="provider"></div>
+            <div class="editor"></div>
+          </div>
+        </div>
+    </div>
     <!-- Script 
       make sure the target Splide element is loaded before 
       constructing the Splide instance
@@ -91,5 +87,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       })
     </script>
   </body>
+</div>
 </html>
 

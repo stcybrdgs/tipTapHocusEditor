@@ -31,7 +31,6 @@ const getEditorText = () => console.log(editor.getText())
 
 editor.on('create', ({ editor }) => {
   console.log('the editor is ready')
-  //   console.log('editor content:', editor.content)
 })
 
 editor.on('update', ({ editor }) => {
