@@ -7,6 +7,7 @@ const getJsonBtn = document.querySelector('.get-json-btn')
 const getTextBtn = document.querySelector('.get-text-btn')
 const outMsgBtn = document.querySelector('.out-msg-btn')
 const msgBtn = document.querySelector('.msg-btn')
+const clearContentBtn = document.querySelector('.clear-content-btn')
 
 // Chat Panel
 const chatPanelBtn = document.querySelector('.chat-panel-btn')
@@ -29,6 +30,7 @@ export {
   getTextBtn,
   outMsgBtn,
   msgBtn,
+  clearContentBtn,
   chatPanelBtn,
   chatToggleBtn,
   chatPanel,

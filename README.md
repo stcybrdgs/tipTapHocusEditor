@@ -12,6 +12,9 @@ npm i url
 #npm install @hocuspocus/provider yjs
 npm i @tiptap/core
 npm i @tiptap/starter-kit
+npm i @tiptap/extension-document
+npm i @tiptap/extension-paragraph
+npm i @tiptap/extension-text
 npm i @tiptap/extension-collaboration
 npm i @tiptap/extension-collaboration-cursor
 npm i @tiptap/extension-placeholder

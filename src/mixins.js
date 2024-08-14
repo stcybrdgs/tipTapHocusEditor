@@ -100,6 +100,11 @@ const removeDoubleReturnsFromText = (text) => {
   return text
 }
 
+// const addDoubleReturnsToText = (text) => {
+//   console.log(text.split(''))
+//   return text
+// }
+
 /*
   - receives from editor.getText()
   - passes text to removeDoubleReturnsFromText()
@@ -115,6 +120,11 @@ const addTextToClipboard = async (text) => {
     console.error(error.message)
   }
 }
+
+// const pasteTextIntoEditor = (text) => {
+//   text = addDoubleReturnsToText(text)
+//   return text + ' TRANSFORMED!'
+// }
 
 /*
   may use function to copy png images to clipboard;
@@ -132,5 +142,6 @@ export {
   addMessageToChatPanel,
   clearChatInput,
   addTextToClipboard,
+  // pasteTextIntoEditor,
 }
 

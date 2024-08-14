@@ -214,7 +214,7 @@ body {
 }
 
 .tiptap {
-  padding: 8px 20px;
+  padding: 10px 20px;
   text-align: left;
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 1.1em;
@@ -230,12 +230,12 @@ body {
 .editor-copy-btn {
   position: absolute;
   z-index: 90;
-  padding: 7px 10px;
-  border-radius: 20px;
+  padding: 8px 12px;
+  border-radius: 22px;
   right: 0;
   background: #6b9edc;
   color: white;
-  margin: 12px 22px;
+  margin: 16px 20px;
   opacity: 0.5;
   transition: opacity 0.2s;
 }

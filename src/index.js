@@ -13,6 +13,7 @@ import {
   getTextBtn,
   outMsgBtn,
   msgBtn,
+  clearContentBtn,
   chatToggleBtn,
   chatPanel,
   chatCloseBtn,
@@ -62,6 +63,7 @@ provider.on('stateless', (data) => {
 getHtmlBtn.addEventListener('click', () => console.log(editor.getHTML()))
 getJsonBtn.addEventListener('click', () => console.log(editor.getJSON()))
 getTextBtn.addEventListener('click', () => console.log(editor.getText()))
+clearContentBtn.addEventListener('click', () => editor.commands.clearContent())
 
 //* Provider Listeners
 // update name and asign cursor color when user logs in
