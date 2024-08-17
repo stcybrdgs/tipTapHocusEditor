@@ -11,14 +11,17 @@ npm i url
 ```bash
 #npm install @hocuspocus/provider yjs
 npm i @tiptap/core
-npm i @tiptap/starter-kit
+#npm i @tiptap/starter-kit
 npm i @tiptap/extension-document
 npm i @tiptap/extension-paragraph
 npm i @tiptap/extension-text
+npm i @tiptap/extension-bold
 npm i @tiptap/extension-collaboration
 npm i @tiptap/extension-collaboration-cursor
 npm i @tiptap/extension-placeholder
+npm i @tiptap/extension-bubble-menu
 npm i @hocuspocus/provider
+npm i prosemirror-model
 npm i --save-dev webpack
 npm i --save-dev webpack-cli
 npm i webpack-dev-server --save-dev

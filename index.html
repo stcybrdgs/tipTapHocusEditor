@@ -28,7 +28,7 @@
       <div class="chat-body">
         <div class="chat-messages"></div>
         <div class="chat-composer">
-          <div class="chat-input" contenteditable="true"></div>
+          <div class="chat-input" contenteditable="plaintext-only"></div>
           <div class="chat-send-btn">
             <i class="fa-regular fa-paper-plane"></i>
           </div>
@@ -66,6 +66,8 @@
               <ul class="splide__list"></ul>
             </div>
           </section>
+          <!-- Bubble Menu -->
+            <!-- TBD -->
           <!-- TipTap Editor -->
           <div class="editor-wrapper">
             <div class="editor"></div>
@@ -74,30 +76,13 @@
             </div>
           </div>
         </div>
-    </div>
-    <!-- Script 
-      make sure the target Splide element is loaded before 
-      constructing the Splide instance
-     -->
-     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>
-     <script src="https://unpkg.com/tippy.js@6"></script> -->
      
      <!-- Splide -->
      <script>
-     document.addEventListener('DOMContentLoaded', function () {
-       new Splide('#image-carousel').mount()
-     });
+      document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#image-carousel').mount()
+      });
     </script>
-
-    <!-- Tippy -->
-    <!-- <script> 
-      // tippy('.editor-copy-btn', {
-      //   content: 'Copy text',
-      //   placement: 'top-start',
-      //   //animation: 'scale-subtle'
-      //   theme: 'light'
-      // });
-    </script> -->
   </body>
 </div>
 </html>

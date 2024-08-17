@@ -1,11 +1,15 @@
 import { provider } from './hocusClient.js'
+import { editor } from './tipTap'
+import tippy from 'tippy.js'
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/animations/scale.css'
+import 'tippy.js/themes/material.css'
 import {
   getCursorFlagColor,
   addMessageToChatPanel,
   clearChatInput,
   addTextToClipboard,
 } from './mixins.js'
-import { editor } from './tipTap'
 import {
   updateNameField,
   getHtmlBtn,
@@ -20,22 +24,17 @@ import {
   chatMessages,
   chatSendBtn,
   chatInput,
-  splideList,
   editorCopyBtn,
+  splideList,
 } from './elements.js'
-import tippy from 'tippy.js'
-import 'tippy.js/dist/tippy.css'
-import 'tippy.js/animations/scale.css'
-import 'tippy.js/themes/material.css'
 
 let chatPanelIsOpen = false
-// const chatInputPlaceholder = "Type a message"
 
 //* Tippy Tooltips
 tippy.setDefaultProps({ delay: 50 })
 
 tippy('.editor-copy-btn', {
-  content: 'Copy Text',
+  content: 'Copy All Text',
   placement: 'top-start',
   animation: 'scale-subtle',
   theme: 'blueberry',
@@ -48,13 +47,6 @@ tippy('.editor-copy-btn', {
 provider.on('stateless', (data) => {
   data = JSON.parse(data.payload)
   const { message, socketId } = data
-
-  console.log(`
-    provider onStateless()\n
-    \t message: ${message} \n
-    \t socketId: ${socketId}\n
-    `)
-
   addMessageToChatPanel(message, chatMessages)
   clearChatInput(chatInput)
 })
@@ -102,7 +94,7 @@ chatCloseBtn.addEventListener('click', () => {
 })
 
 chatSendBtn.addEventListener('click', () => {
-  const chatMsg = chatInput.textContent
+  const chatMsg = chatInput.innerText.trim()
   provider.sendStateless(chatMsg)
 })
 

@@ -133,22 +133,13 @@ server.configure({
   },
 
   // called after receiving a stateless message
-  async onStateless(test) {
-    /*
-    test : {
-    connection: //
-    documentName: //
-    document: //
-    payload: //
-    }
-    */
-    //test.payload = 'string from the server'
+  async onStateless(chatMsg) {
     const myPayload = {
-      message: test.payload,
-      socketId: test.connection.socketId,
+      message: chatMsg.payload,
+      socketId: chatMsg.connection.socketId,
     }
 
-    test.document.broadcastStateless(JSON.stringify(myPayload))
+    chatMsg.document.broadcastStateless(JSON.stringify(myPayload))
   },
 })
 

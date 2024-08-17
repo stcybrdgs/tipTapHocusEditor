@@ -17,6 +17,9 @@ const chatCloseBtn = document.querySelector('.chat-close-btn')
 const chatMessages = document.querySelector('.chat-messages')
 const chatSendBtn = document.querySelector('.chat-send-btn')
 const chatInput = document.querySelector('.chat-input')
+
+// Editor
+const editorWrapper = document.querySelector('.editor-wrapper')
 const editorCopyBtn = document.querySelector('.editor-copy-btn')
 
 // Splide Carousel
@@ -24,13 +27,18 @@ const splideList = document.querySelector('.splide__list')
 
 // export elements
 export {
+  // User Login
   updateNameField,
+
+  // Button Panel
   getHtmlBtn,
   getJsonBtn,
   getTextBtn,
   outMsgBtn,
   msgBtn,
   clearContentBtn,
+
+  // Chat Panel
   chatPanelBtn,
   chatToggleBtn,
   chatPanel,
@@ -38,7 +46,12 @@ export {
   chatMessages,
   chatSendBtn,
   chatInput,
-  splideList,
+
+  // Editor
+  editorWrapper,
   editorCopyBtn,
+
+  // Splide Carousel
+  splideList,
 }
 

@@ -15,13 +15,13 @@ const provider = new HocuspocusProvider({
     console.log('provider onConnect() !')
   },
   onAwarenessUpdate: ({ states }) => {
-    console.log('provider onAwarenessUpdate()', states)
+    //console.log('provider onAwarenessUpdate()', states)
   },
   onMessage: (data) => {
-    console.log(data)
+    // console.log(data)
   },
   onOutgoingMessage: ({ event, message }) => {
-    console.log(`provider onOutgoingMessage(): \n\t ${event} | ${message}`)
+    //console.log(`provider onOutgoingMessage(): \n\t ${event} | ${message}`)
   },
   //* Note: the onStateless hook is registered in index.js
 })

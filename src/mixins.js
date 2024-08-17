@@ -66,10 +66,24 @@ const getCursorFlagColor = () => {
 
 const addMessageToChatPanel = (message, chatMessagesElem) => {
   if (message.length) {
-    let newMsg = document.createElement('p')
-    newMsg.classList.add('chat-panel-msg')
-    newMsg.textContent = message
-    chatMessagesElem.appendChild(newMsg)
+    const newParagraph = document.createElement('p')
+
+    const msgArr = message.split('\n')
+
+    msgArr.forEach((line) => {
+      if (line === '') {
+        const newBreak = document.createElement('br')
+        newParagraph.appendChild(newBreak)
+      } else {
+        const newSpan = document.createElement('span')
+        newSpan.style.display = 'block'
+        newSpan.textContent = line
+        newParagraph.appendChild(newSpan)
+      }
+    })
+
+    newParagraph.classList.add('chat-panel-msg')
+    chatMessagesElem.appendChild(newParagraph)
     chatMessagesElem.scrollTop = chatMessagesElem.scrollHeight
   }
 }
@@ -100,11 +114,6 @@ const removeDoubleReturnsFromText = (text) => {
   return text
 }
 
-// const addDoubleReturnsToText = (text) => {
-//   console.log(text.split(''))
-//   return text
-// }
-
 /*
   - receives from editor.getText()
   - passes text to removeDoubleReturnsFromText()
@@ -121,11 +130,6 @@ const addTextToClipboard = async (text) => {
   }
 }
 
-// const pasteTextIntoEditor = (text) => {
-//   text = addDoubleReturnsToText(text)
-//   return text + ' TRANSFORMED!'
-// }
-
 /*
   may use function to copy png images to clipboard;
   will need to change type
@@ -137,11 +141,37 @@ const addTextToClipboard = async (text) => {
 // await navigator.clipboard.write(data)
 //}
 
+const getParagraphInfoFromPastedText = (text) => {
+  const emptyIndexes = []
+  const textArr = text.split('\n')
+  let index = 0
+  while (index < textArr.length) {
+    if (textArr[index] === '') {
+      emptyIndexes.push(index)
+    }
+    index++
+  }
+
+  return {
+    text,
+    emptyIndexes,
+    totalParagraphs: index,
+    totalEmpty: emptyIndexes.length,
+  }
+}
+
+const getMaxOfArray = (numArray) => {
+  return Math.max.apply(null, numArray)
+}
+
 export {
   getCursorFlagColor,
   addMessageToChatPanel,
   clearChatInput,
   addTextToClipboard,
-  // pasteTextIntoEditor,
+  getParagraphInfoFromPastedText,
+  getSelectedText,
+  // getParagraphInfoFromeditorPastedText,
+  // getMaxOfArray,
 }
 
